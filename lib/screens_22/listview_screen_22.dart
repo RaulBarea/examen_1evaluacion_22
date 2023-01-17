@@ -40,7 +40,7 @@ class ListviewScreen22 extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   final route = MaterialPageRoute(builder: (context) => const PistasScreen22());
-                  Navigator.pushReplacement(context, route);
+                  Navigator.push(context, route);
                 }, 
                 child:  Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
