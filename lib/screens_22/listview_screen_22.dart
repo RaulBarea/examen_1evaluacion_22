@@ -71,7 +71,7 @@ class _ListviewScreen22State extends State<ListviewScreen22> with SingleTickerPr
         controller: _tabController,
         children: const [
           InicioScreen(),
-          ReservasScreen22(),
+          MisReservasScreen(),
           PagoScreen(),
           ProfileScreen(),
         ],

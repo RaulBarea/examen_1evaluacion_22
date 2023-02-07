@@ -30,37 +30,37 @@ class _PagoScreenState extends State<PagoScreen> {
                 color: Colors.grey[200]
               ),
               alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 80, left: 35, right: 35, bottom: 35),
+              child: const Padding(
+                padding: EdgeInsets.only(top: 80, left: 35, right: 35, bottom: 35),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        const Text('Precio(IVA incluido)'),
-                        const SizedBox(width: 76,),
-                        Text('13,63€'/*widget.precio*/, style: const TextStyle(fontSize: 30, color: AppTheme22.primary22),),
+                        Text('Precio(IVA incluido)'),
+                        SizedBox(width: 76,),
+                        Text('13,63€'/*widget.precio*/, style: TextStyle(fontSize: 30, color: AppTheme22.primary22),),
                       ],
                     ),
-                    const SizedBox(height: 5,),
+                    SizedBox(height: 5,),
                     Row(
-                      children: const [
+                      children: [
                         Text('Creditos acumulados'),
                         SizedBox(width: 76,),
                         Text('13,36€', style: TextStyle(),),
                       ],
                     ),
-                    const SizedBox(height: 30,),
+                    SizedBox(height: 30,),
                     Row(
-                      children: const [
+                      children: [
                          Text('Politica de cancelación',),
                          Text(''),
                       ],
                     ),
-                    const SizedBox(height: 8,),
-                    const Text('Este centro permite la cancelación hasta 24 horas antes.'),
-                    const SizedBox(height: 8,),
+                    SizedBox(height: 8,),
+                    Text('Este centro permite la cancelación hasta 24 horas antes.'),
+                    SizedBox(height: 8,),
                     Row(
-                      children: const [
+                      children: [
                         Text('*Hora local del club', style: TextStyle(color: Colors.red),),
                       ],
                     ),
@@ -124,6 +124,11 @@ class _PagoScreenState extends State<PagoScreen> {
                                 return 'Numero de tarjeta invalido';
                               }
                             },
+                            onChanged: (value) => {
+                              if(value.length == 4 || value.length == 9 || value.length == 14){
+                                value = "$value "
+                              }
+                            },
                             autovalidateMode: AutovalidateMode.onUserInteraction,
                             decoration: const InputDecoration(
                               hintText: '1234 1234 1234 1234',
@@ -154,6 +159,11 @@ class _PagoScreenState extends State<PagoScreen> {
                                      if( value!.isEmpty){
                                        return "Campo obligatorio";
                                      }
+                                  },
+                                  onChanged: (value) => {
+                                    if(value.length == 1){
+                                      value = "$value/"
+                                    }
                                   },
                                   autovalidateMode: AutovalidateMode.onUserInteraction,
                                   decoration: const InputDecoration(
