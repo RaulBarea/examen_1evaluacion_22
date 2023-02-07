@@ -1,188 +1,80 @@
+import 'package:examen_1evaluacion_22/app_theme_22/app_theme_22.dart';
+import 'package:examen_1evaluacion_22/screens_22/inicio_screen.dart';
 import 'package:examen_1evaluacion_22/screens_22/mis_reservas_screen.dart';
+import 'package:examen_1evaluacion_22/screens_22/notificaciones_screen.dart';
 import 'package:examen_1evaluacion_22/screens_22/pasarela_pago_screen.dart';
+import 'package:examen_1evaluacion_22/screens_22/profile_screen.dart';
 import 'package:examen_1evaluacion_22/screens_22/screens_22.dart';
 import 'package:flutter/material.dart';
 
-class ListviewScreen22 extends StatelessWidget {
+class ListviewScreen22 extends StatefulWidget {
    
   const ListviewScreen22({Key? key}) : super(key: key);
-  
+
+  @override
+  State<ListviewScreen22> createState() => _ListviewScreen22State();
+}
+
+class _ListviewScreen22State extends State<ListviewScreen22> with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 4);
+  }
+
+  @override
+  void dispose() {
+    _tabController!.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter App'),
-        actions: const [
+        automaticallyImplyLeading: false,
+        title: const Padding(
+          padding: EdgeInsets.only(left: 20),
+          child: Text('Playtomic'),
+        ),
+        actions: [
           Padding(
-            padding: EdgeInsets.only(left: 8, top: 8, bottom: 8, right: 35),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage('https://as01.epimg.net/meristation/imagenes/2013/09/17/noticia/1379397600_125748_1532601596_portada_normal.jpg'),
-            ),
+            padding: const EdgeInsets.only(left: 8, top: 8, bottom: 8, right: 35),
+            child: GestureDetector(
+              onTap: () {
+                final route = MaterialPageRoute(builder: (context) => const NotificacionesScreen());
+                Navigator.push(context, route);
+              },
+              child: const Icon(Icons.notifications)
+            )
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 10,),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: const FadeInImage(
-                image: NetworkImage('https://www.tuescuelapadel.com/wp-content/uploads/2020/05/fabricante_pista_padel.jpg'), 
-                placeholder: AssetImage('assets/Loading_icon.gif'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5, left: 5),
-              child: ElevatedButton(
-                onPressed: () {
-                  final route = MaterialPageRoute(builder: (context) => const PistasScreen22());
-                  Navigator.push(context, route);
-                }, 
-                child:  Padding(
-                  padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Row(
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text('Pistas', style: TextStyle(fontSize: 18),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 215),
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    )
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20,),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: const FadeInImage(
-                image: NetworkImage('https://images.hola.com/imagenes/estar-bien/20200205159628/errores-que-evita-entrenador-personal/0-777-664/errores-entrenador-personal-t.jpg'), 
-                placeholder: AssetImage('assets/Loading_icon.gif'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5, left: 5),
-              child: ElevatedButton(
-                onPressed: () {
-                  final route = MaterialPageRoute(builder: (context) => const MonitoresScreen22());
-                  Navigator.push(context, route);
-                }, 
-                child:  Padding(
-                  padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Row(
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text('Monitores', style: TextStyle(fontSize: 18),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 184),
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    )
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20,),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: const FadeInImage(
-                fit: BoxFit.cover,
-                width: double.infinity,
-                image: NetworkImage('https://nuevecuatrouno.com/wp-content/uploads/2021/06/pistas-adarraga-1.jpg'), 
-                placeholder: AssetImage('assets/Loading_icon.gif'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5, left: 5),
-              child: ElevatedButton(
-                onPressed: () {
-                  final route = MaterialPageRoute(builder: (context) => const ReservasScreen22());
-                  Navigator.push(context, route);
-                }, 
-                child:  Padding(
-                  padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Row(
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text('Reservar pista', style: TextStyle(fontSize: 18),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 150),
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    )
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20,),
-            Card(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: const FadeInImage(
-                fit: BoxFit.cover,
-                width: double.infinity,
-                image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_u4p5zLwABT1RF-bX5D0yFWNbJqsc9441m8BS9tCqimYSQDjjfXKn3jBe8SB1T-jiBZQ&usqp=CAU'), 
-                placeholder: AssetImage('assets/Loading_icon.gif'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5, left: 5),
-              child: ElevatedButton(
-                onPressed: () {
-                  final route = MaterialPageRoute(builder: (context) => const MisReservasScreen());
-                  Navigator.push(context, route);
-                }, 
-                child:  Padding(
-                  padding: const EdgeInsets.only(bottom: 10, top: 10),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Row(
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text('Mis reservar', style: TextStyle(fontSize: 18),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 166),
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    )
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20,),
-          ],
+      bottomNavigationBar: TabBar(
+        labelColor: AppTheme22.primary22,
+        unselectedLabelColor: Colors.grey,
+        indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.white
         ),
+        controller: _tabController,
+        tabs: const [
+          Tab(icon: Icon(Icons.home), text: 'Inicio'),
+          Tab(icon: Icon(Icons.calendar_month), text: 'Mis reservas'),
+          Tab(icon: Icon(Icons.sports_baseball), text: 'Pistas'),
+          Tab(icon: Icon(Icons.person), text: 'Profile'),
+        ],
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: const [
+          InicioScreen(),
+          ReservasScreen22(),
+          PagoScreen(),
+          ProfileScreen(),
+        ],
       ),
     );
   }

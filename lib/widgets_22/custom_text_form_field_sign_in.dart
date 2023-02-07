@@ -29,7 +29,7 @@ class CustomTextFormFieldSignIn extends StatelessWidget {
         }
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      decoration:  InputDecoration(
+      decoration:  InputDecoration(       
         hintText: hintText,
         labelText: labelText,
         suffixIcon: Icon(suffixIcon),

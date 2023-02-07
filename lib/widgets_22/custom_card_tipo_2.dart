@@ -54,7 +54,7 @@ class _CustomCardTipo2State extends State<CustomCardTipo2> {
                 child: ElevatedButton(
                   onPressed: (){
                     cambiarbtn();
-                    final route = MaterialPageRoute(builder: (context) => PagoScreen(widget.precio));
+                    final route = MaterialPageRoute(builder: (context) => PagoScreen(/*widget.precio*/));
                     Navigator.push(context, route);
                   },
                   style: ElevatedButton.styleFrom(

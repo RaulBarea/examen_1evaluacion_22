@@ -1,3 +1,4 @@
+import 'package:examen_1evaluacion_22/app_theme_22/app_theme_22.dart';
 import 'package:examen_1evaluacion_22/screens_22/screens_22.dart';
 import 'package:flutter/material.dart';
 
@@ -8,36 +9,74 @@ class HomeScreen22 extends StatelessWidget {
    @override
    Widget build(BuildContext context) {
        return Scaffold(
-           body: Center(
-               child: Column(
-                children: [
-                  const SizedBox(height: 180,),
-                  const FlutterLogo(size: 200,),
-                  const SizedBox(height: 90 ,),
-                  ElevatedButton(
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/fondoHomeApp.jpg'), 
+              ),
+            ),
+            child: Center(
+                 child: Column(
+                  children: [
+                    const SizedBox(height: 500,), 
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue[400]
+                      ),
                       onPressed: () {
-                        final route = MaterialPageRoute(builder: (context) => const SingInScreen22());
-                        Navigator.pushReplacement(context, route);
+                        final route = MaterialPageRoute(builder: (context) => const SignUpScreen());
+                        Navigator.push(context, route);
                       }, 
                       child: const Padding(
-                        padding: EdgeInsets.only(left: 40, right: 40, top: 17, bottom: 17),
-                        child: Text('Sign in', style: TextStyle(fontSize: 18),),
+                        padding: EdgeInsets.only(left: 93, right: 93, top: 13, bottom: 13),
+                        child: Text('Registrarme', style: TextStyle(fontSize: 17),),
                       ),
                     ),
-                  const SizedBox(height: 40,),
-                  ElevatedButton(
-                    onPressed: () {
-                      final route = MaterialPageRoute(builder: (context) => const SignUpScreen());
-                      Navigator.pushReplacement(context, route);
-                    }, 
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 40, right: 40, top: 17, bottom: 17),
-                      child: Text('Sign up', style: TextStyle(fontSize: 18),),
+                    const SizedBox(height: 17,),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+                        elevation: 0,
+                        shape: const StadiumBorder(),
+                        side: const BorderSide(color: AppTheme22.primary22, width: 2)
+                      ),
+                      onPressed: () {
+                        final route = MaterialPageRoute(builder: (context) => const SingInScreen22());
+                        Navigator.push(context, route);
+                      }, 
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 88, right: 88, top: 13, bottom: 13),
+                        child: Text('Iniciar sesión', style: TextStyle(fontSize: 17, color: AppTheme22.primary22), maxLines: 1,),
+                      ),
                     ),
-                  ),
-                ],
-               ),
-           ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 45, left: 120),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            style: IconButton.styleFrom(
+                              fixedSize: Size(60,60),
+                            ),
+                            color: AppTheme22.primary22,
+                            icon: Icon(Icons.facebook_outlined),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            style: IconButton.styleFrom(
+                              fixedSize: Size(60,60),
+                            ),
+                            color: AppTheme22.primary22,
+                            icon: Icon(Icons.g_mobiledata_outlined),
+                            onPressed: (){},
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                 ),
+             ),
+          ),
        );
    }
 }
