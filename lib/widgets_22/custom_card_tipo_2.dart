@@ -7,8 +7,9 @@ class CustomCardTipo2 extends StatefulWidget {
 final String nombre;
 final String duracion;
 final String hora;
+final String precio;
 
-  const CustomCardTipo2({Key? key, required this.nombre, required this.hora, required this.duracion}) : super(key: key);
+  const CustomCardTipo2({Key? key, required this.nombre, required this.hora, required this.duracion, required this.precio}) : super(key: key);
 
   @override
   State<CustomCardTipo2> createState() => _CustomCardTipo2State();
@@ -41,7 +42,7 @@ class _CustomCardTipo2State extends State<CustomCardTipo2> {
               padding: const EdgeInsets.only(top: 5),
               child: Text(widget.hora),
             ), 
-            title: Text(widget.nombre),
+            title: Text('${widget.nombre} | ${widget.precio}' ),
             children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 15),
@@ -53,7 +54,7 @@ class _CustomCardTipo2State extends State<CustomCardTipo2> {
                 child: ElevatedButton(
                   onPressed: (){
                     cambiarbtn();
-                    final route = MaterialPageRoute(builder: (context) => const PagoScreen());
+                    final route = MaterialPageRoute(builder: (context) => PagoScreen(widget.precio));
                     Navigator.push(context, route);
                   },
                   style: ElevatedButton.styleFrom(

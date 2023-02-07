@@ -15,6 +15,14 @@ class _ReservasScreen22State extends State<ReservasScreen22> {
   final MaterialStateProperty<Color?>? colorBtn = MaterialStateProperty.all(const Color(0xFFFFFFFF));
   List<bool> estadoBtn = [false, false, false, false, false, false, false];
   
+  List<bool> reservasL = [false, false, false, false, false, false, false, false];
+  List<bool> reservasM = [false, false, false, false, false, false, false, false];
+  List<bool> reservasX = [false, false, false, false, false, false, false, false];
+  List<bool> reservasJ = [false, false, false, false, false, false, false, false];
+  List<bool> reservasV = [false, false, false, false, false, false, false, false];
+  List<bool> reservasS = [false, false, false, false, false, false, false, false];
+  List<bool> reservasD = [false, false, false, false, false, false, false, false];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,14 +319,14 @@ class _ReservasScreen22State extends State<ReservasScreen22> {
                   ),
                 ),
               ),
-              const CustomCardTipo2(nombre: 'Padel', hora: '8:00 - 9:30', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Fútbol', hora: '9:30 - 11:00', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Baloncesto', hora: '11:00 - 12:30', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Padel', hora: '12:30 - 14:00', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Fútbol', hora: '16:00 - 17:30', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Piscina', hora: '17:30 - 19:00', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Piscina', hora: '19:00 - 20:30', duracion: 'Duracion: 1:30h',),
-              const CustomCardTipo2(nombre: 'Baloncesto', hora: '20:30 - 22:00', duracion: 'Duracion: 1:30h',),
+              const CustomCardTipo2(nombre: 'Padel', hora: '8:00 - 9:30', duracion: 'Duracion: 1:30h', precio: '10,99€',),
+              const CustomCardTipo2(nombre: 'Fútbol', hora: '9:30 - 11:00', duracion: 'Duracion: 1:30h', precio: '19,99€',),
+              const CustomCardTipo2(nombre: 'Baloncesto', hora: '11:00 - 12:30', duracion: 'Duracion: 1:30h', precio: '14,99€',),
+              const CustomCardTipo2(nombre: 'Padel', hora: '12:30 - 14:00', duracion: 'Duracion: 1:30h', precio: '10,99€',),
+              const CustomCardTipo2(nombre: 'Fútbol', hora: '16:00 - 17:30', duracion: 'Duracion: 1:30h', precio: '19,99€',),
+              const CustomCardTipo2(nombre: 'Piscina', hora: '17:30 - 19:00', duracion: 'Duracion: 1:30h', precio: '8,99€',),
+              const CustomCardTipo2(nombre: 'Piscina', hora: '19:00 - 20:30', duracion: 'Duracion: 1:30h', precio: '8,99€',),
+              const CustomCardTipo2(nombre: 'Baloncesto', hora: '20:30 - 22:00', duracion: 'Duracion: 1:30h', precio: '14,99€',),
             ],
           ),
         ),

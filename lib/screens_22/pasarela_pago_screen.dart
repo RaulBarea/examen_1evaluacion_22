@@ -5,8 +5,9 @@ import 'package:examen_1evaluacion_22/screens_22/reservas_screen_22.dart';
 import 'package:flutter/material.dart';
 
 class PagoScreen extends StatefulWidget {
-   
-  const PagoScreen({Key? key}) : super(key: key);
+  //String precio;
+
+  const PagoScreen({Key? key, /*required this.precio*/}) : super(key: key);
 
   @override
   State<PagoScreen> createState() => _PagoScreenState();
@@ -34,10 +35,10 @@ class _PagoScreenState extends State<PagoScreen> {
                 child: Column(
                   children: [
                     Row(
-                      children: const [
-                        Text('Precio(IVA incluido)'),
-                        SizedBox(width: 76,),
-                        Text('13,36€', style: TextStyle(fontSize: 30, color: AppTheme22.primary22),),
+                      children: [
+                        const Text('Precio(IVA incluido)'),
+                        const SizedBox(width: 76,),
+                        Text('13,63€'/*widget.precio*/, style: const TextStyle(fontSize: 30, color: AppTheme22.primary22),),
                       ],
                     ),
                     const SizedBox(height: 5,),
@@ -150,11 +151,9 @@ class _PagoScreenState extends State<PagoScreen> {
                                 child: TextFormField(
                                   keyboardType: TextInputType.number,
                                   validator: (value) {
-                                    if( value!.isEmpty){
-                                      return "Campo obligatorio";
-                                    }else if( value.substring(2, 3) != "/" ){
-                                      return 'Fecha de caducidad invalida';
-                                    }
+                                     if( value!.isEmpty){
+                                       return "Campo obligatorio";
+                                     }
                                   },
                                   autovalidateMode: AutovalidateMode.onUserInteraction,
                                   decoration: const InputDecoration(
@@ -226,8 +225,7 @@ class _PagoScreenState extends State<PagoScreen> {
                             onPressed: (() {
                               final route = MaterialPageRoute(builder: (context) => const ListviewScreen22());
                               Navigator.push(context, route);
-
-                              if( !myFormKey.currentState!.validate() ){
+                                if( !myFormKey.currentState!.validate() ){
                                 print('Formulario no valido');
                                 return;
                               }
@@ -254,7 +252,7 @@ class _PagoScreenState extends State<PagoScreen> {
                 ),
                 onPressed: (() {
                   final route = MaterialPageRoute(builder: (context) => const ReservasScreen22());
-                  Navigator.push(context, route);
+                  Navigator.pop(context, route);
                 }), 
                 child: Text(
                   'Volver a la selección de pagos', 
