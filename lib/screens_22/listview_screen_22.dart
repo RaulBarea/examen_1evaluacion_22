@@ -69,10 +69,10 @@ class _ListviewScreen22State extends State<ListviewScreen22> with SingleTickerPr
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          InicioScreen(),
-          MisReservasScreen(),
-          PagoScreen(),
+        children: [
+          const InicioScreen(),
+          const MisReservasScreen(),
+          const PagoScreen(),
           ProfileScreen(),
         ],
       ),

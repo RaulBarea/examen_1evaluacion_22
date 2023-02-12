@@ -163,6 +163,9 @@ class _PagoScreenState extends State<PagoScreen> {
                                   onChanged: (value) => {
                                     if(value.length == 1){
                                       value = "$value/"
+                                    },
+                                    if(value != 1){
+                                      value = "$value/"
                                     }
                                   },
                                   autovalidateMode: AutovalidateMode.onUserInteraction,

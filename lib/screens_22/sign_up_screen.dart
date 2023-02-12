@@ -15,7 +15,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
    
    bool _sliderEnabled =  false;
-   final myFormKey = GlobalKey<FormState>();
+  final myFormKey = GlobalKey<FormState>();
 
   final Map<String, String> formValues = {
     'usuario': 'rbarea',
