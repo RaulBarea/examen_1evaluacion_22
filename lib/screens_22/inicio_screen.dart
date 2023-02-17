@@ -25,7 +25,7 @@ class InicioScreen extends StatelessWidget {
                   final route = MaterialPageRoute(builder: (context) => const TarjetaCreditoScreen());
                   Navigator.push(context, route);
                 }, 
-                child:const Row(
+                child: Row(
                   children: [
                     Icon(Icons.credit_card_outlined, color: Colors.black,),
                     Padding(
