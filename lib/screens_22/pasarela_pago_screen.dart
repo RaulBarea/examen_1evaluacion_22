@@ -30,37 +30,37 @@ class _PagoScreenState extends State<PagoScreen> {
                 color: Colors.grey[200]
               ),
               alignment: Alignment.centerLeft,
-              child: const Padding(
-                padding: EdgeInsets.only(top: 80, left: 35, right: 35, bottom: 35),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 80, left: 35, right: 35, bottom: 35),
                 child: Column(
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Text('Precio(IVA incluido)'),
                         SizedBox(width: 76,),
                         Text('13,63€'/*widget.precio*/, style: TextStyle(fontSize: 30, color: AppTheme22.primary22),),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    const SizedBox(height: 5,),
                     Row(
-                      children: [
+                      children: const [
                         Text('Creditos acumulados'),
                         SizedBox(width: 76,),
                         Text('13,36€', style: TextStyle(),),
                       ],
                     ),
-                    SizedBox(height: 30,),
+                    const SizedBox(height: 30,),
                     Row(
-                      children: [
-                         Text('Politica de cancelación',),
-                         Text(''),
+                      children: const [
+                        Text('Politica de cancelación',),
+                        Text(''),
                       ],
                     ),
-                    SizedBox(height: 8,),
-                    Text('Este centro permite la cancelación hasta 24 horas antes.'),
-                    SizedBox(height: 8,),
+                    const SizedBox(height: 8,),
+                    const Text('Este centro permite la cancelación hasta 24 horas antes.'),
+                    const SizedBox(height: 8,),
                     Row(
-                      children: [
+                      children: const [
                         Text('*Hora local del club', style: TextStyle(color: Colors.red),),
                       ],
                     ),
